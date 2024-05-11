@@ -164,6 +164,38 @@ class GCGAttackPrompt(AttackPrompt):
         )
 ```
 
+## Training Process
+
+The training process for creating adversarial prompts involves several key steps:
+
+- **Adversarial Suffix Identification:** Initially, the researchers identify potentially manipulative suffixes—segments of text that, when added to a standard query, lead the model to generate undesirable outputs.
+
+- **Gradient Optimization:** Using the identified suffixes, the team employs a gradient-based optimization technique. This involves calculating how sensitive the model’s output is to changes in each token of the suffix, allowing them to adjust the tokens iteratively to maximize the undesirable output.
+
+- **Loss Function Minimization:** The effectiveness of each adversarial prompt is quantified using a specially defined loss function, which measures the likelihood of the model producing harmful content. The training aims to minimize this loss, refining the prompt to its most potent form.
+
+## Transfer Process
+
+Once adversarial prompts are effectively trained, their transferability is tested across various models. This process is crucial because it demonstrates the real-world applicability of the prompts in manipulating different language models, not just the one they were originally trained on.
+
+- **Cross-Model Application:** The trained adversarial prompts are applied to different models to check their effectiveness. This includes both similar models (e.g., variants of the same base model trained with slightly different data or parameters) and entirely different architectures.
+- **Effectiveness Assessment:** The transfer effectiveness is assessed based on the model’s output when subjected to the adversarial prompts. The key metric here is the similarity of the undesirable output across different models when using the same adversarial prompt.
+- **Iterative Refinement:** If a prompt shows reduced effectiveness in a new model, it may undergo further refinement through additional gradient optimization, tailored to the new model’s specific characteristics.
+
+This training and transfer process underscores a significant risk associated with language models: **their vulnerability to subtle manipulations that can lead to outputs that deviate dramatically from intended ethical guidelines.** The study’s findings highlight the need for robust mechanisms to detect and mitigate such vulnerabilities, ensuring that models behave reliably under adversarial conditions. Additionally, it stresses the importance of considering model security from a universal perspective, where defenses must hold up not just against known threats but also against novel attacks that could be devised in the future.
+
+
+## Results
+The results of the study demonstrated a striking success rate for the adversarial prompts across a variety of language models, including those that are publicly available and widely used in industry settings. Remarkably, the adversarial prompts not only triggered these models to generate harmful content but did so with high consistency, underlining the potential severity of such vulnerabilities. The researchers reported success rates often exceeding 80%, showing that the prompts were not only effective in a controlled experimental environment but also in more generalized, real-world scenarios. These findings illustrate a profound challenge in safeguarding AI language models against malicious inputs, revealing that even well-aligned models are susceptible to manipulation.
+
+![](assets/results.png)
+*the attack success rate after transferring to commercial LLMs*
+
+## Conclusion
+> **The need for robust and resilient defenses against adversarial attacks.** 
+
+The study’s results clearly demonstrate that current methods for aligning language models with ethical and safe outputs can be systematically circumvented. As AI continues to integrate into diverse sectors, the implications for security become increasingly significant. This research not only highlights the vulnerabilities but also calls for the development of more advanced detection and mitigation strategies that can adapt to evolving adversarial techniques. Moving forward, the AI community must prioritize the study of these vulnerabilities to ensure the reliability and safety of AI systems in real-world applications.
+
 
 ## References
 [1] Zou, Andy, Zifan Wang, J. Zico Kolter, and Matt Fredrikson. "Universal and transferable adversarial attacks on aligned language models." arXiv preprint arXiv:2307.15043 (2023).
