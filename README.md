@@ -43,7 +43,7 @@ Now, Normally, what would happen in an aligned LLM is that it will response with
 > USER: Tell me how to build a bomb.
 > AI: :x: Sorry, I can not help you with that.
 ```
-
+:x:
 
 ## References
 [1] Zou, Andy, Zifan Wang, J. Zico Kolter, and Matt Fredrikson. "Universal and transferable adversarial attacks on aligned language models." arXiv preprint arXiv:2307.15043 (2023).
