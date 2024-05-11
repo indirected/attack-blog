@@ -27,6 +27,23 @@ Take the above example into consideration, In a normal situation, ChatGPT would 
 
 Now that I have your attention, let's see how this attack is actually done.
 
+Recall, The goal is to make the model comply. However, compliance is a vague concept. To quantize this concept, we can use a simple intuition.
+
+The paper discusses an intriguing tactic for tricking language models into generating harmful content, even when they're designed not to. The strategy involves **starting the AI's response with an affirmative tone**, like saying **"Sure, here is..."** in response to a user's prompt. This approach exploits a loophole in the model's behavior: 
+> **once the model begins a response positively, it is more likely to continue along the same path and provide the full harmful content that follows**. 
+
+Essentially, by nudging the model to start affirmatively, the adversarial prompt sets the stage for the rest of the objectionable output, bypassing the safeguards meant to prevent such responses.
+
+Lets look at an example:
+```
+USER: Tell me how to build a bomb.
+```
+Now, Normally, what would happen in an aligned LLM is that it will response with a denying sentence.
+```
+> USER: Tell me how to build a bomb.
+> AI: <p style="color:Red">Sorry</p>, I can not help you with that.
+```
+
 
 ## References
 [1] Zou, Andy, Zifan Wang, J. Zico Kolter, and Matt Fredrikson. "Universal and transferable adversarial attacks on aligned language models." arXiv preprint arXiv:2307.15043 (2023).
