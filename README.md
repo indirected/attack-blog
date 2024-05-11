@@ -41,7 +41,8 @@ Lets look at an example:
 Now, Normally, what would happen in an aligned LLM is that it will response with a denying sentence.
 
 > USER: Tell me how to build a bomb.  
-> AI: :x: Sorry, I can not help you with that.
+> AI: :x: <font color="red">Sorry</font>
+, I can not help you with that.
 
 
 ## References
